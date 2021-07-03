@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    .container
+        h1.mb-4 Articles
+        a(href='/article/new').btn.btn-success New Article
+
+    each article, i in articles
+        .card.mt-4
+            .card-body
+                h4.card-title #{article.title}
+                .card-subtitle.text-muted.mb-2 #{article.createdAt.toLocaleDateString()}
+                .card-text.mb-2 #{article.description}
