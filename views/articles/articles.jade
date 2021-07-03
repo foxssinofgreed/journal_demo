@@ -11,3 +11,6 @@ block content
                 h4.card-title #{article.title}
                 .card-subtitle.text-muted.mb-2 #{article.createdAt.toLocaleDateString()}
                 .card-text.mb-2 #{article.description}
+                a(href='article/#{article.slug}').btn.btn-primary Read More
+                form(action='/article/#{article.id}?_method=DELETE', method='POST').d-inline
+                    button(type='submit').btn.btn-danger Delete

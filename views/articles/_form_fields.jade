@@ -1,14 +1,14 @@
 .form-group
     label(for='title') Title
-    input(required, type='text', name='title', value='#{article.title}')#title.form-control
+    input(required, type='text', name='title')#title.form-control
 
 .form-group
     label(for='description') Description
-    textarea(name='description')#description.form-control #{article.description}
+    textarea(name='description')#description.form-control
 
 .form-group
     label(for='mark_down') Mark Down
-    textarea(required, name='mark_down')#mark_down.form-control #{article.mark_down}
+    textarea(required, name='mark_down')#mark_down.form-control
 
 a(href='/article').btn.btn-secondary Cancel
 button(type='submit').btn.btn-primary Save
