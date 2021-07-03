@@ -6,6 +6,6 @@ block content
         .text-muted #{article.createdAt.toLocaleDateString()}
 
         a(href='/article').btn.btn-secondary All Articles
-        a(href='/article/edit/#{article.slug}').btn.btn-info Edit
+        a(href='/article/edit/#{article.id}').btn.btn-info Edit
 
         !{article.sanitizedHtml}
