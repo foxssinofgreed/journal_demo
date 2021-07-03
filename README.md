@@ -1,4 +1,4 @@
-This is a journal project where you can create new articles, edit and delete them.
+This is a journal project where you can create, edit and delete articles.
 
 After importing all dependencies with npm, you can host app by using command:
 
