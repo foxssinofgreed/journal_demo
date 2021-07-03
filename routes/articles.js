@@ -23,13 +23,15 @@ router.get('/:slug', async (req, res) => {
     res.render('articles/show', { article: article });
 })
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
+    req.article = new Article();
+    next();
+}, saveArticleAndRedirect('new'));
 
-});
-
-router.put('/:id', async (req, res) => {
-
-})
+router.put('/:id', async (req, res, next) => {
+    req.article = await Article.findById(req.params.id);
+    next();
+}, saveArticleAndRedirect('edit'));
 
 router.delete('/:id', async (req, res) => {
     await Article.findByIdAndDelete(req.params.id);
@@ -37,7 +39,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 function saveArticleAndRedirect(path) {
-    return (req, res) => {
+    return async (req, res) => {
         var article = req.article
         article.title = req.body.title
         article.description = req.body.description
