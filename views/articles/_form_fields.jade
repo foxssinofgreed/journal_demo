@@ -1,4 +1,14 @@
-extends ./new
+.form-group
+    label(for='title') Title
+    input(required, type='text', name='title', value='#{article.title}')#title.form-control
 
-block forms
-    p something
+.form-group
+    label(for='description') Description
+    textarea(name='description')#description.form-control #{article.description}
+
+.form-group
+    label(for='mark_down') Mark Down
+    textarea(required, name='mark_down')#mark_down.form-control #{article.mark_down}
+
+a(href='/article').btn.btn-secondary Cancel
+button(type='submit').btn.btn-primary Save

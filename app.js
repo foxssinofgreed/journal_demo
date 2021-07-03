@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var mongoose = require('mongoose');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -9,6 +10,8 @@ var usersRouter = require('./routes/users');
 var articleRouter = require('./routes/articles');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/journal', { useUnifiedTopology: true , useNewUrlParser: true } );
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
